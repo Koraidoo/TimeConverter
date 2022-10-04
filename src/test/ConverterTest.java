@@ -1,12 +1,9 @@
 package test;
 
-import static org.junit.Assert.assertThrows;
+import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import java.time.DateTimeException;
-
-import org.junit.Test;
 
 import timeConverter.Converter;
 
@@ -15,7 +12,7 @@ public class ConverterTest {
     public void testUTC1() {
         Converter c = new Converter("UTC", "UTC+1");
         c.setDate(2022, 1, 1, 3, 30);
-        assertEquals("2022-01-01 03:30" ,c.getFormattedDate());
+        assertEquals("2022-01-01 03:30", c.getFormattedDate());
         assertEquals("2022-01-01 04:30", c.convert());
     }
 
@@ -23,7 +20,7 @@ public class ConverterTest {
     public void testUTC18() {
         Converter c = new Converter("UTC", "UTC+18");
         c.setDate(2022, 1, 1, 3, 30);
-        assertEquals("2022-01-01 03:30" ,c.getFormattedDate());
+        assertEquals("2022-01-01 03:30", c.getFormattedDate());
         assertEquals("2022-01-01 21:30", c.convert());
     }
 
@@ -31,8 +28,7 @@ public class ConverterTest {
     public void testUTC19() {
         Converter c = new Converter("UTC", "UTC+19");
         c.setDate(2022, 1, 1, 3, 30);
-        assertEquals("2022-01-01 03:30" ,c.getFormattedDate());
-        assertEquals("2022-01-01 22:30", c.convert());
-        assertThrows(new DateTimeException(null), c.convert());
+        assertEquals("2022-01-01 03:30", c.getFormattedDate());
+        assertThrows(DateTimeException.class, () -> c.convert());
     }
 }

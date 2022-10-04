@@ -1,4 +1,5 @@
 package timeConverter;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -55,10 +56,10 @@ public class ConverterFrame extends JFrame implements Runnable {
         minute.setBounds(150, 40, 30, 20);
         this.add(minuteLabel);
         this.add(minute);
-        
+
         JLabel fromLabel = new JLabel("from Zone:");
         fromLabel.setBounds(20, 70, 80, 20);
-        String[] fromZones = {"UTC", "Australia/Sydney"};
+        String[] fromZones = { "UTC", "Australia/Sydney" };
         JComboBox<String> fromZone = new JComboBox<>(fromZones);
         fromZone.setBounds(100, 70, 180, 20);
         this.add(fromLabel);
@@ -66,7 +67,7 @@ public class ConverterFrame extends JFrame implements Runnable {
 
         JLabel toLabel = new JLabel("to Zone:");
         toLabel.setBounds(20, 100, 80, 20);
-        String[] toZones = {"UTC", "Australia/Sydney"};
+        String[] toZones = { "UTC", "Australia/Sydney" };
         JComboBox<String> toZone = new JComboBox<>(toZones);
         toZone.setBounds(100, 100, 180, 20);
         this.add(toLabel);
@@ -81,12 +82,12 @@ public class ConverterFrame extends JFrame implements Runnable {
 
         JLabel result = new JLabel();
         result.setBounds(85, 190, 120, 20);
-        
+
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Converter converter = new Converter(
-                    fromZone.getItemAt(fromZone.getSelectedIndex()), 
-                    toZone.getItemAt(toZone.getSelectedIndex()));
+                        fromZone.getItemAt(fromZone.getSelectedIndex()),
+                        toZone.getItemAt(toZone.getSelectedIndex()));
 
                 String field = "";
                 int year_ = 0, month_ = 0, day_ = 0, hour_ = 0, minute_ = 0;

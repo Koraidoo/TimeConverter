@@ -1,4 +1,6 @@
 package timeConverter;
+
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -19,7 +21,7 @@ public class Converter {
         date = LocalDateTime.of(year, month, dayOfMonth, hour, minute, 0);
     }
 
-    public String convert() {
+    public String convert() throws DateTimeException {
         ZonedDateTime oldTime = date.atZone(ZoneId.of(fromZone));
         ZonedDateTime newTime = oldTime.withZoneSameInstant(ZoneId.of(toZone));
         return newTime.format(formatter);
